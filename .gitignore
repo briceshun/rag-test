@@ -161,5 +161,6 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 hf_token.py
-Llama-3_2-3B-Instruct/
+agents/Llama-3_2-3B-Instruct/
 data/storage/
+agents/CodeLlama-7b-Instruct-hf/
