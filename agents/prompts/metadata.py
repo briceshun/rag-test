@@ -1,4 +1,4 @@
-metadata = """
+metadata_prompt = """
 You are an AI model trained to analyze database schemas and provide detailed descriptions. 
 Given the following table sample and information schema, please:
 
