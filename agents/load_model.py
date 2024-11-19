@@ -4,7 +4,7 @@ from transformers import AutoTokenizer, AutoModelForCausalLM, pipeline
 def load_model(
     path,
     model_name='meta-llama/Llama-3.2-3B-Instruct',
-    tokens=2000
+    tokens=5000
     ):
 
     # Load from local path if exists otherwise download
