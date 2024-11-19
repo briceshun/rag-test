@@ -1,0 +1,24 @@
+
+
+Table: Playlist
+
+Description: 
+The Playlist table stores information about different music playlists, including a unique identifier (PlaylistId) and the playlist name. It has one primary key (PlaylistId) and one column (Name) to store the playlist name. The Name column has a maximum length of 120 characters.
+
+Use Case: 
+The main use case for this table is to manage and store user-created playlists, allowing users to easily create, edit, and delete playlists, and associate them with their respective music content.
+
+Schema: 
+CREATE TABLE [Playlist]
+(
+    [PlaylistId] INTEGER  NOT NULL,
+    [Name] NVARCHAR(120),
+    CONSTRAINT [PK_Playlist] PRIMARY KEY  ([PlaylistId])
+)
+
+Sample:
+{'PlaylistId': 1, 'Name': 'Music'}
+{'PlaylistId': 2, 'Name': 'Movies'}
+{'PlaylistId': 3, 'Name': 'TV Shows'}
+{'PlaylistId': 4, 'Name': 'Audiobooks'}
+{'PlaylistId': 5, 'Name': '90’s Music'}

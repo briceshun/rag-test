@@ -1,0 +1,27 @@
+
+
+Table: Album
+
+Description: 
+The Album table contains information about albums, including the album ID, title, and the ID of the artist who created it. The album ID uniquely identifies each album, and the artist ID establishes a foreign key relationship with the Artist table. The title is limited to 160 characters.
+
+Use Case: 
+The main use case for this table is to store and manage information about albums, including their titles, artist IDs, and album IDs, allowing for efficient querying and retrieval of album data in conjunction with artist data.
+
+Schema: 
+CREATE TABLE [Album]
+(
+    [AlbumId] INTEGER  NOT NULL,
+    [Title] NVARCHAR(160)  NOT NULL,
+    [ArtistId] INTEGER  NOT NULL,
+    CONSTRAINT [PK_Album] PRIMARY KEY  ([AlbumId]),
+    FOREIGN KEY ([ArtistId]) REFERENCES [Artist] ([ArtistId]) 
+		ON DELETE NO ACTION ON UPDATE NO ACTION
+)
+
+Sample:
+{'AlbumId': 1, 'Title': 'For Those About To Rock We Salute You', 'ArtistId': 1}
+{'AlbumId': 2, 'Title': 'Balls to the Wall', 'ArtistId': 2}
+{'AlbumId': 3, 'Title': 'Restless and Wild', 'ArtistId': 2}
+{'AlbumId': 4, 'Title': 'Let There Be Rock', 'ArtistId': 1}
+{'AlbumId': 5, 'Title': 'Big Ones', 'ArtistId': 3}

@@ -1,0 +1,24 @@
+
+
+Table: Genre
+
+Description: 
+The Genre table stores information about different music genres. It contains two columns: GenreId, which is a unique identifier for each genre, and Name, which represents the name of the genre. The data types for these columns are integer and NVARCHAR(120), respectively.
+
+Use Case: 
+This table is primarily used to store and manage a list of unique music genres, allowing for efficient querying and retrieval of genre information, such as filtering, sorting, and joining with other tables that reference this genre table.
+
+Schema: 
+CREATE TABLE [Genre]
+(
+    [GenreId] INTEGER  NOT NULL,
+    [Name] NVARCHAR(120),
+    CONSTRAINT [PK_Genre] PRIMARY KEY  ([GenreId])
+)
+
+Sample:
+{'GenreId': 1, 'Name': 'Rock'}
+{'GenreId': 2, 'Name': 'Jazz'}
+{'GenreId': 3, 'Name': 'Metal'}
+{'GenreId': 4, 'Name': 'Alternative & Punk'}
+{'GenreId': 5, 'Name': 'Rock And Roll'}

@@ -1,0 +1,24 @@
+
+
+Table: MediaType
+
+Description: 
+The MediaType table stores information about different types of media, including audio and video files. It contains two columns: MediaTypeId, a unique identifier for each media type, and Name, the name of the media type. The data types are integer for MediaTypeId and nvarchar(120) for Name.
+
+Use Case: 
+The main use case for this table is to store and manage different media types in a database, allowing for easy retrieval and organization of media information.
+
+Schema: 
+CREATE TABLE [MediaType]
+(
+    [MediaTypeId] INTEGER  NOT NULL,
+    [Name] NVARCHAR(120),
+    CONSTRAINT [PK_MediaType] PRIMARY KEY  ([MediaTypeId])
+)
+
+Sample:
+{'MediaTypeId': 1, 'Name': 'MPEG audio file'}
+{'MediaTypeId': 2, 'Name': 'Protected AAC audio file'}
+{'MediaTypeId': 3, 'Name': 'Protected MPEG-4 video file'}
+{'MediaTypeId': 4, 'Name': 'Purchased AAC audio file'}
+{'MediaTypeId': 5, 'Name': 'AAC audio file'}

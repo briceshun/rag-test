@@ -1,0 +1,37 @@
+
+
+Table: Customer
+
+Description: 
+The Customer table stores information about customers, including their contact details, company affiliation, and support representative. The table includes columns for customer ID, first name, last name, company name, address, city, state, country, postal code, phone number, fax number, email address, and support representative ID.
+
+Use Case: 
+This table is used to store and manage customer data, allowing for the tracking of customer interactions, support requests, and other business operations related to customer relationships.
+
+Schema: 
+CREATE TABLE [Customer]
+(
+    [CustomerId] INTEGER  NOT NULL,
+    [FirstName] NVARCHAR(40)  NOT NULL,
+    [LastName] NVARCHAR(20)  NOT NULL,
+    [Company] NVARCHAR(80),
+    [Address] NVARCHAR(70),
+    [City] NVARCHAR(40),
+    [State] NVARCHAR(40),
+    [Country] NVARCHAR(40),
+    [PostalCode] NVARCHAR(10),
+    [Phone] NVARCHAR(24),
+    [Fax] NVARCHAR(24),
+    [Email] NVARCHAR(60)  NOT NULL,
+    [SupportRepId] INTEGER,
+    CONSTRAINT [PK_Customer] PRIMARY KEY  ([CustomerId]),
+    FOREIGN KEY ([SupportRepId]) REFERENCES [Employee] ([EmployeeId]) 
+		ON DELETE NO ACTION ON UPDATE NO ACTION
+)
+
+Sample:
+{'CustomerId': 1, 'FirstName': 'Luís', 'LastName': 'Gonçalves', 'Company': 'Embraer - Empresa Brasileira de Aeronáutica S.A.', 'Address': 'Av. Brigadeiro Faria Lima, 2170', 'City': 'São José dos Campos', 'State': 'SP', 'Country': 'Brazil', 'PostalCode': '12227-000', 'Phone': '+55 (12) 3923-5555', 'Fax': '+55 (12) 3923-5566', 'Email': 'luisg@embraer.com.br', 'SupportRepId': 3}
+{'CustomerId': 2, 'FirstName': 'Leonie', 'LastName': 'Köhler', 'Company': None, 'Address': 'Theodor-Heuss-Straße 34', 'City': 'Stuttgart', 'State': None, 'Country': 'Germany', 'PostalCode': '70174', 'Phone': '+49 0711 2842222', 'Fax': None, 'Email': 'leonekohler@surfeu.de', 'SupportRepId': 5}
+{'CustomerId': 3, 'FirstName': 'François', 'LastName': 'Tremblay', 'Company': None, 'Address': '1498 rue Bélanger', 'City': 'Montréal', 'State': 'QC', 'Country': 'Canada', 'PostalCode': 'H2G 1A7', 'Phone': '+1 (514) 721-4711', 'Fax': None, 'Email': 'ftremblay@gmail.com', 'SupportRepId': 3}
+{'CustomerId': 4, 'FirstName': 'Bjørn', 'LastName': 'Hansen', 'Company': None, 'Address': 'Ullevålsveien 14', 'City': 'Oslo', 'State': None, 'Country': 'Norway', 'PostalCode': '0171', 'Phone': '+47 22 44 22 22', 'Fax': None, 'Email': 'bjorn.hansen@yahoo.no', 'SupportRepId': 4}
+{'CustomerId': 5, 'FirstName': 'František', 'LastName': 'Wichterlová', 'Company': 'JetBrains s.r.o.', 'Address': 'Klanova 9/506', 'City': 'Prague', 'State': None, 'Country': 'Czech Republic', 'PostalCode': '14700', 'Phone': '+420 2 4172 5555', 'Fax': '+420 2 4172 5555', 'Email': 'frantisekw@jetbrains.com', 'SupportRepId': 4}

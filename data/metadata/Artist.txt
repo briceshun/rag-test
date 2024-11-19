@@ -1,0 +1,24 @@
+
+
+Table: Artist
+
+Description: 
+The Artist table stores information about different artists, including their unique ArtistId and artist name. The ArtistId is an integer and the Name is a string of up to 120 characters. The table has a primary key constraint on ArtistId.
+
+Use Case: 
+The main use case for this table is to store and manage information about various artists, such as their names, IDs, and possibly other attributes like genres, birthdates, or album information.
+
+Schema: 
+CREATE TABLE [Artist]
+(
+    [ArtistId] INTEGER  NOT NULL,
+    [Name] NVARCHAR(120),
+    CONSTRAINT [PK_Artist] PRIMARY KEY  ([ArtistId])
+)
+
+Sample:
+{'ArtistId': 1, 'Name': 'AC/DC'}
+{'ArtistId': 2, 'Name': 'Accept'}
+{'ArtistId': 3, 'Name': 'Aerosmith'}
+{'ArtistId': 4, 'Name': 'Alanis Morissette'}
+{'ArtistId': 5, 'Name': 'Alice In Chains'}

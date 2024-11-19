@@ -1,0 +1,39 @@
+
+
+Table: Employee
+
+Description: 
+The Employee table contains information about employees in a company, including their ID, name, title, department, birthdate, hire date, address, city, state, country, postal code, phone number, fax number, and email address. The table also includes a foreign key referencing the Employee table, indicating that an employee reports to another employee.
+
+Use Case: 
+This table is used to store and manage employee data, enabling the tracking of employee relationships, reporting, and other organizational tasks.
+
+Schema: 
+CREATE TABLE [Employee]
+(
+    [EmployeeId] INTEGER  NOT NULL,
+    [LastName] NVARCHAR(20)  NOT NULL,
+    [FirstName] NVARCHAR(20)  NOT NULL,
+    [Title] NVARCHAR(30),
+    [ReportsTo] INTEGER,
+    [BirthDate] DATETIME,
+    [HireDate] DATETIME,
+    [Address] NVARCHAR(70),
+    [City] NVARCHAR(40),
+    [State] NVARCHAR(40),
+    [Country] NVARCHAR(40),
+    [PostalCode] NVARCHAR(10),
+    [Phone] NVARCHAR(24),
+    [Fax] NVARCHAR(24),
+    [Email] NVARCHAR(60),
+    CONSTRAINT [PK_Employee] PRIMARY KEY  ([EmployeeId]),
+    FOREIGN KEY ([ReportsTo]) REFERENCES [Employee] ([EmployeeId]) 
+		ON DELETE NO ACTION ON UPDATE NO ACTION
+)
+
+Sample:
+{'EmployeeId': 1, 'LastName': 'Adams', 'FirstName': 'Andrew', 'Title': 'General Manager', 'ReportsTo': None, 'BirthDate': '1962-02-18 00:00:00', 'HireDate': '2002-08-14 00:00:00', 'Address': '11120 Jasper Ave NW', 'City': 'Edmonton', 'State': 'AB', 'Country': 'Canada', 'PostalCode': 'T5K 2N1', 'Phone': '+1 (780) 428-9482', 'Fax': '+1 (780) 428-3457', 'Email': 'andrew@chinookcorp.com'}
+{'EmployeeId': 2, 'LastName': 'Edwards', 'FirstName': 'Nancy', 'Title': 'Sales Manager', 'ReportsTo': 1, 'BirthDate': '1958-12-08 00:00:00', 'HireDate': '2002-05-01 00:00:00', 'Address': '825 8 Ave SW', 'City': 'Calgary', 'State': 'AB', 'Country': 'Canada', 'PostalCode': 'T2P 2T3', 'Phone': '+1 (403) 262-3443', 'Fax': '+1 (403) 262-3322', 'Email': 'nancy@chinookcorp.com'}
+{'EmployeeId': 3, 'LastName': 'Peacock', 'FirstName': 'Jane', 'Title': 'Sales Support Agent', 'ReportsTo': 2, 'BirthDate': '1973-08-29 00:00:00', 'HireDate': '2002-04-01 00:00:00', 'Address': '1111 6 Ave SW', 'City': 'Calgary', 'State': 'AB', 'Country': 'Canada', 'PostalCode': 'T2P 5M5', 'Phone': '+1 (403) 262-3443', 'Fax': '+1 (403) 262-6712', 'Email': 'jane@chinookcorp.com'}
+{'EmployeeId': 4, 'LastName': 'Park', 'FirstName': 'Margaret', 'Title': 'Sales Support Agent', 'ReportsTo': 2, 'BirthDate': '1947-09-19 00:00:00', 'HireDate': '2003-05-03 00:00:00', 'Address': '683 10 Street SW', 'City': 'Calgary', 'State': 'AB', 'Country': 'Canada', 'PostalCode': 'T2P 5G3', 'Phone': '+1 (403) 263-4423', 'Fax': '+1 (403) 263-4289', 'Email': 'margaret@chinookcorp.com'}
+{'EmployeeId': 5, 'LastName': 'Johnson', 'FirstName': 'Steve', 'Title': 'Sales Support Agent', 'ReportsTo': 2, 'BirthDate': '1965-03-03 00:00:00', 'HireDate': '2003-10-17 00:00:00', 'Address': '7727B 41 Ave', 'City': 'Calgary', 'State': 'AB', 'Country': 'Canada', 'PostalCode': 'T3B 1Y7', 'Phone': '1 (780) 836-9987', 'Fax': '1 (780) 836-9543', 'Email': 'steve@chinookcorp.com'}

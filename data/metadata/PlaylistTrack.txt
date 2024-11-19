@@ -1,0 +1,28 @@
+
+
+Table: PlaylistTrack
+
+Description: 
+The PlaylistTrack table stores the many-to-many relationship between playlists and tracks. It contains two columns: PlaylistId (the ID of the playlist) and TrackId (the ID of the track), both of which are integer data types. The table has a primary key constraint on both columns, ensuring a unique combination of playlist and track IDs. Foreign key constraints are also in place to link the playlist and track IDs to their respective tables in the database.
+
+Use Case: 
+The main use case for this table is to manage playlist tracks, allowing users to add or remove tracks from playlists. It supports the creation of multiple playlists with multiple tracks each, and provides a mechanism for enforcing data integrity through foreign key constraints.
+
+Schema: 
+CREATE TABLE [PlaylistTrack]
+(
+    [PlaylistId] INTEGER  NOT NULL,
+    [TrackId] INTEGER  NOT NULL,
+    CONSTRAINT [PK_PlaylistTrack] PRIMARY KEY  ([PlaylistId], [TrackId]),
+    FOREIGN KEY ([PlaylistId]) REFERENCES [Playlist] ([PlaylistId]) 
+		ON DELETE NO ACTION ON UPDATE NO ACTION,
+    FOREIGN KEY ([TrackId]) REFERENCES [Track] ([TrackId]) 
+		ON DELETE NO ACTION ON UPDATE NO ACTION
+)
+
+Sample:
+{'PlaylistId': 1, 'TrackId': 3402}
+{'PlaylistId': 1, 'TrackId': 3389}
+{'PlaylistId': 1, 'TrackId': 3390}
+{'PlaylistId': 1, 'TrackId': 3391}
+{'PlaylistId': 1, 'TrackId': 3392}

@@ -1,0 +1,37 @@
+
+
+Table: Track
+
+Description: 
+The Track table stores information about individual music tracks, including track ID, name, album ID, media type ID, genre ID, composer, milliseconds, bytes, and unit price. The table has foreign key constraints to maintain relationships with the Album and Genre tables.
+
+Use Case: 
+The main use case for this table is to manage and store information about individual music tracks, enabling the retrieval and manipulation of track data in a database.
+
+Schema: 
+CREATE TABLE [Track]
+(
+    [TrackId] INTEGER  NOT NULL,
+    [Name] NVARCHAR(200)  NOT NULL,
+    [AlbumId] INTEGER,
+    [MediaTypeId] INTEGER  NOT NULL,
+    [GenreId] INTEGER,
+    [Composer] NVARCHAR(220),
+    [Milliseconds] INTEGER  NOT NULL,
+    [Bytes] INTEGER,
+    [UnitPrice] NUMERIC(10,2)  NOT NULL,
+    CONSTRAINT [PK_Track] PRIMARY KEY  ([TrackId]),
+    FOREIGN KEY ([AlbumId]) REFERENCES [Album] ([AlbumId]) 
+		ON DELETE NO ACTION ON UPDATE NO ACTION,
+    FOREIGN KEY ([GenreId]) REFERENCES [Genre] ([GenreId]) 
+		ON DELETE NO ACTION ON UPDATE NO ACTION,
+    FOREIGN KEY ([MediaTypeId]) REFERENCES [MediaType] ([MediaTypeId]) 
+		ON DELETE NO ACTION ON UPDATE NO ACTION
+)
+
+Sample:
+{'TrackId': 1, 'Name': 'For Those About To Rock (We Salute You)', 'AlbumId': 1, 'MediaTypeId': 1, 'GenreId': 1, 'Composer': 'Angus Young, Malcolm Young, Brian Johnson', 'Milliseconds': 343719, 'Bytes': 11170334, 'UnitPrice': 0.99}
+{'TrackId': 2, 'Name': 'Balls to the Wall', 'AlbumId': 2, 'MediaTypeId': 2, 'GenreId': 1, 'Composer': 'U. Dirkschneider, W. Hoffmann, H. Frank, P. Baltes, S. Kaufmann, G. Hoffmann', 'Milliseconds': 342562, 'Bytes': 5510424, 'UnitPrice': 0.99}
+{'TrackId': 3, 'Name': 'Fast As a Shark', 'AlbumId': 3, 'MediaTypeId': 2, 'GenreId': 1, 'Composer': 'F. Baltes, S. Kaufman, U. Dirkscneider & W. Hoffman', 'Milliseconds': 230619, 'Bytes': 3990994, 'UnitPrice': 0.99}
+{'TrackId': 4, 'Name': 'Restless and Wild', 'AlbumId': 3, 'MediaTypeId': 2, 'GenreId': 1, 'Composer': 'F. Baltes, R.A. Smith-Diesel, S. Kaufman, U. Dirkscneider & W. Hoffman', 'Milliseconds': 252051, 'Bytes': 4331779, 'UnitPrice': 0.99}
+{'TrackId': 5, 'Name': 'Princess of the Dawn', 'AlbumId': 3, 'MediaTypeId': 2, 'GenreId': 1, 'Composer': 'Deaffy & R.A. Smith-Diesel', 'Milliseconds': 375418, 'Bytes': 6290521, 'UnitPrice': 0.99}
