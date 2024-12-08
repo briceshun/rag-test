@@ -10,12 +10,12 @@ def load_model(
     # Load from local path if exists otherwise download
     try:
         # Load
-        tokenizer = AutoTokenizer.from_pretrained(f"{path}/tokenizer")
-        model = AutoModelForCausalLM.from_pretrained(f"{path}/model")
+        tokenizer = AutoTokenizer.from_pretrained(f"{path}/tokenizer", torch_dtype=torch.float16)
+        model = AutoModelForCausalLM.from_pretrained(f"{path}/model", torch_dtype=torch.float16)
     except:
         # Download
-        tokenizer = AutoTokenizer.from_pretrained(model_name)
-        model = AutoModelForCausalLM.from_pretrained(model_name)
+        tokenizer = AutoTokenizer.from_pretrained(model_name, torch_dtype=torch.float16)
+        model = AutoModelForCausalLM.from_pretrained(model_name, torch_dtype=torch.float16)
         # Save
         tokenizer.save_pretrained(f"{path}/tokenizer")
         model.save_pretrained(f"{path}/model")
